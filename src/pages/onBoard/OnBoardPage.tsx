@@ -41,6 +41,16 @@ const OnBoardPage: ActivityComponentType = () => {
             ></GaugeComp>
           </div>
           <div>
+            <div className="flex justify-start">현재 습도량 </div>
+            <HumidGauge
+              dataValue={
+                datas?.temperature_air_data[
+                  datas.temperature_air_data.length - 1
+                ].air_humid || 0
+              }
+            ></HumidGauge>
+          </div>
+          <div>
             <div className="flex justify-start">현재 조도량 : </div>
             <IllumGauge
               dataValue={
@@ -58,16 +68,7 @@ const OnBoardPage: ActivityComponentType = () => {
               }
             ></WaterGauge>
           </div>
-          <div>
-            <div className="flex justify-start">현재 습도량 </div>
-            <HumidGauge
-              dataValue={
-                datas?.temperature_air_data[
-                  datas.temperature_air_data.length - 1
-                ].air_humid || 0
-              }
-            ></HumidGauge>
-          </div>
+
           <div>
             <div className="flex justify-start">현재 토양습도량 </div>
             <SoilHumidGuage
