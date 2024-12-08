@@ -1,0 +1,19 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "lib": [
+      "ES2021"
+    ],
+    "types": [
+      "kakao.maps.d.ts"
+    ]
+  }
+}
