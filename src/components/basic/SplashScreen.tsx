@@ -10,7 +10,7 @@ export default function SplashScreen() {
   );
 
   return (
-    <div className="splash-screen text-Bold45 animate-fade">
+    <div className="splash-screen text-Bold30 animate-fade">
       <ImageWrapper className="min-w-[3.1875rem]">
         <img
           className=""

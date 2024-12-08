@@ -11,7 +11,7 @@ export default function SoilHumidGuage({ dataValue }: { dataValue: number }) {
         // gradient: true,
         subArcs: [
           {
-            limit: 20,
+            limit: 450,
             color: "#EA4228",
             showTick: true,
             tooltip: {
@@ -22,7 +22,7 @@ export default function SoilHumidGuage({ dataValue }: { dataValue: number }) {
             onMouseLeave: () => console.log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC"),
           },
           {
-            limit: 40,
+            limit: 700,
             color: "#F5CD19",
             showTick: true,
             tooltip: {
@@ -30,7 +30,7 @@ export default function SoilHumidGuage({ dataValue }: { dataValue: number }) {
             },
           },
           {
-            limit: 60,
+            limit: 800,
             color: "#5BE12C",
             showTick: true,
             tooltip: {
@@ -38,18 +38,18 @@ export default function SoilHumidGuage({ dataValue }: { dataValue: number }) {
             },
           },
           {
-            limit: 80,
+            limit: 900,
             color: "#F5CD19",
             showTick: true,
             tooltip: {
-              text: "Low soilHumidity!",
+              text: "High soilHumidity!",
             },
           },
           {
             color: "#EA4228",
             showTick: true,
             tooltip: {
-              text: "Too low soilHumidity!",
+              text: "Too High soilHumidity!",
             },
             onClick: () => console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"),
             onMouseMove: () => console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB"),
@@ -64,19 +64,27 @@ export default function SoilHumidGuage({ dataValue }: { dataValue: number }) {
         // elastic: true,
       }}
       labels={{
-        valueLabel: { formatTextValue: (value) => value + "%" },
+        valueLabel: {
+          formatTextValue: (value) =>
+            value + `(${(((1024 - value) / 1024) * 100).toFixed(1)}%)`,
+        },
         tickLabels: {
           type: "outer",
           defaultTickValueConfig: {
-            formatTextValue: (value) => value + "%",
+            formatTextValue: (value) => value,
             style: { fontSize: 10 },
           },
-          ticks: [{ value: 200 }, { value: 400 }],
+          ticks: [
+            { value: 300 },
+            { value: 500 },
+            { value: 800 },
+            { value: 900 },
+          ],
         },
       }}
       value={dataValue}
       minValue={0}
-      maxValue={100}
+      maxValue={1024}
     />
   );
 }

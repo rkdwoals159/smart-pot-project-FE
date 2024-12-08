@@ -79,7 +79,18 @@ const OnBoardPage: ActivityComponentType = () => {
         </section>
         <div className="py-[2rem]">
           <button
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+
+              getImages().then((data) => {
+                window.open(
+                  `http://14.47.163.184:8080/data/images/${data.files[0].id}`
+                );
+              });
+            }}
+            onTouchEnd={(e) => {
+              e.preventDefault();
+
               getImages().then((data) => {
                 window.open(
                   `http://14.47.163.184:8080/data/images/${data.files[0].id}`
