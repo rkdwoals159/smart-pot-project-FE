@@ -19,7 +19,7 @@ const OnBoardPage: ActivityComponentType = () => {
     getDataAll().then((data) => {
       setDatas(data);
     });
-  }, 60000);
+  }, 5000);
   useEffect(() => {
     getDataAll().then((data) => {
       setDatas(data);
